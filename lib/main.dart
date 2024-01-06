@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lorem_ipsum/lorem_ipsum.dart';
 
 void main() {
   runApp(const MyApp());
@@ -59,7 +60,7 @@ class MyApp extends StatelessWidget {
                       ),
                     Padding(
                       padding: const EdgeInsets.only(top: 9),
-                      child: Text("Create AI generated personalized breathing exercise videos as per your feelings",
+                      child: Text(loremIpsum(paragraphs: 1, words: 15),
                         style: TextStyle(fontSize: 17,
                             color: Colors.white,),
                         textAlign: TextAlign.center,
@@ -97,28 +98,34 @@ class MyApp extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                child: Column(
                   children: [
-                Container(
-                  height: 87,
-                  width: 145,
-                  decoration: BoxDecoration(
-                    color: Colors.indigo,
-                    borderRadius: BorderRadius.circular(20)
-                  ),
-                ),
-                SizedBox(width: 15),
-                Container(
-                  height: 87,
-                  width: 145,
-                  decoration: BoxDecoration(
-                    color: Colors.indigo,
-                    borderRadius: BorderRadius.circular(20)
-                  ),
-                ),
-
-                ],
+                    Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                    Container(
+                      height: 87,
+                      width: 145,
+                      decoration: BoxDecoration(
+                        color: Colors.indigo,
+                        borderRadius: BorderRadius.circular(20)
+                      ),
+                    ),
+                    const SizedBox(width: 15),
+                    Container(
+                      height: 87,
+                      width: 145,
+                      decoration: BoxDecoration(
+                        color: Colors.indigo,
+                        borderRadius: BorderRadius.circular(20)
+                        ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [],
+                    )
+                  ],
                 ),
               ),
               Padding(
@@ -156,21 +163,61 @@ class MyApp extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 70),
+              SizedBox(height: 50),
               Padding(
                 padding: const EdgeInsets.only(right: 6),
                 child: Container(
-                  height: 87,
-                  width: 380,
+                  height: 95,
+                  width: 385,
                   decoration: BoxDecoration(
-                    color: Colors.cyan,
+                    image: const DecorationImage(
+                        image: AssetImage('assets/sky-accent.jpg'),
+                        fit: BoxFit.fill
+                    ),
                     borderRadius: BorderRadius.circular(16)
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Flexible(
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 6.0),
+                              child: Text(
+                                  loremIpsum(paragraphs: 1, words: 10),
+                                style: TextStyle(
+                                  color: Colors.white
+                                ),
+                              ),
+                            )
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.greenAccent,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20)
+                                  )
+                              ),
+                              onPressed: () {},
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(CupertinoIcons.sparkles),
+                                  Text("Create video")
+                                ],
+                              )),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               )
             ],
           ),
-        )
+        ),
       ),
     );
   }
