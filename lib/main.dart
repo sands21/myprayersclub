@@ -33,9 +33,19 @@ class MyApp extends StatelessWidget {
         ),
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.black
         ),
-        body: Padding(
+
+      body: Container(
+      decoration: const BoxDecoration(
+      gradient: LinearGradient(
+      colors: [Colors.black, Colors.indigo],
+      begin: Alignment.topCenter,
+      end: Alignment.bottomRight,
+        ),
+      ),
+
+        child: Padding(
           padding: const EdgeInsets.only( top: 12.0),
           child: Column(
             children: [
@@ -91,6 +101,7 @@ class MyApp extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 30.0, right: 200),
                 child: Text("Trending Breathwork",
                 style: TextStyle(
+                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 18
                   ),
@@ -132,6 +143,7 @@ class MyApp extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 50, right: 230),
                 child: Text("Your Breathwork",
                   style: TextStyle(
+                    color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 18
                   ),
@@ -219,6 +231,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
+      )
     );
   }
 }
